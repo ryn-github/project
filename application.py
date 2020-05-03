@@ -1,15 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 template_dir = "/home/r/project"
 
 app = Flask(__name__, template_folder=template_dir)
 
-lsit = ["uno","dos","tres","quadro"]
-
 @app.route("/")
 def index():
-    return render_template("primary.html")
+    return render_template("new.html")
 
-@app.route("/speedwagon")
-def speedwagon():
-    return render_template("speedwagon.html")
+@app.route("/more", methods=["POST","GET"])
+def more():
+    name=''
+    name=request.form.get("phone_number")
+
+    return render_template("more.html", name=name)

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Sith Legend{% endblock %}
+
+{% block heading %}Darth Plagueis The Wise{% endblock %}
+
+{% block body %}
+    <p>you ever hear the tragedy of darth plagueis the wise, no?, its not a
+       story the jedi would tell you, long ago there lived a sith lord called
+       darth plagueis the wise, he could bring back people from the dead, one
+       night his apprentice killed him in his sleep, he could save others from
+       death but not himself
+    </p>
+    <p class = "big">IRONIC</p>
+    <br>
+    <a href=" {{ url_for("more") }} ">More...</a>
+
+<div>
+{% if name == '' %}
+    Welcome{{ Name }}
+
+{% else %}
+    <form action="{{ url_for('more') }}" method="post">
+        <input type="text" name="name" placeholder="Enter Name">
+        <button>Submit</button>
+    </form>
+{% endif %}
+</div>
+{% endblock %}
